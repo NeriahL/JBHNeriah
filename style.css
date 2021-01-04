@@ -1,0 +1,87 @@
+body {
+    padding: 15px;
+    font-size: 15px;
+    width: 800px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+h1 {
+   color: rgb(142,40,0);
+   font-size: 2em;
+}
+
+h2 {
+   color: rgb(182,73,38);
+   font-size: 1.75em;
+   border-bottom: 1px solid rgb(255,176,59);
+}
+
+h3 {
+   color: rgb(70,137,102);
+   font-size: 1.5em;
+}
+section div {
+   width: 260px;
+   display: inline-block;
+   justify-content: center;
+}
+
+form label {
+   vertical-align: top;
+   display: inline-block;
+   width: 130px;
+   border-color:rgb(142,40,0);
+   font-weight: 700;
+}
+
+form label input, label textarea {
+   border: 1px solid rgb(142,40,0); /* #5 */
+   padding: 7px;
+   outline: none;
+   
+}
+form input, textarea {
+   border: 1px solid rgb(142,40,0); /* #5 */
+   padding: 7px;
+   outline: none;  
+}
+form button{
+   padding: 10px;
+   margin: 10px;
+   width: 25%;
+   background-color: rgb(70,137,102);
+   color: rgb(255,240,165);
+   font-size: inherit;
+   outline: none
+}
+img{
+   width: 30%;
+}
+.center{
+   text-align: center;
+}
+nav {
+ margin: 0;
+ background-color: rgb(70,137,102);
+ overflow: hidden;
+}
+nav a {
+float: left;
+ color: rgb(255,240,165);
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration: none;
+ font-size: 17px;
+}
+nav a:hover {
+ background-color: rgb(255,240,165);
+ color: rgb(70,137,102);
+}
+nav a:active {
+ background-color: #4CAF50;
+ color: white;
+}
+.field {
+   color: rgb(142,40,0);
+}
