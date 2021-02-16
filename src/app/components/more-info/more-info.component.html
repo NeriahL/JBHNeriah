@@ -1,0 +1,47 @@
+<div class="card-body">
+    <div class="custom-control custom-switch float-right">
+        <input type="checkbox" class="custom-control-input" [checked]="isChecked" *ngIf="popUp==true" id={{card.id}} (click)= "checkOff()" data-toggle="modal" data-target="#exampleModalCenter">
+        <label class="custom-control-label" for={{card.id}}></label>
+    </div>
+    <h5 class="card-title">{{ card.symbol }}</h5>
+    <p class="card-text">{{ card.name }}</p>
+    <p>
+        <button type="button" class="btn btn-primary" (click) = "moreInfo(card.id)"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          More Info
+        </button>
+      </p>
+      <div id="collapseExample" [ngbCollapse]="isCollapsed">
+        <app-loading *ngIf= "isLoading==true"></app-loading>
+        <div  *ngIf="coinInfo">
+          <div class="card-body" *ngIf="isLoading==false">
+            <img src={{coinInfo.ImageUrl}}>
+            <p>
+                {{ coinInfo.USDprice | currency: "USD"}}<br>
+                {{ coinInfo.ILSprice | currency: "ILS" }}<br>
+                {{ coinInfo.EURprice | currency: "EUR" }}<br>
+            </p>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" *ngIf="popUp==false" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Warning!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="popUp=true">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Please remove an item from your Live Update list before you add another item.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="popUp=true">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

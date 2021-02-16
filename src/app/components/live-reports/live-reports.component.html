@@ -1,0 +1,30 @@
+<app-loading *ngIf="isLoading == true"></app-loading>
+<div class="row mx-5" *ngIf="isLoading == false">
+  <div *ngIf="coinUpdates.length==0" class="justify-content-center">
+    <p>
+      No coins selected for Live updates.
+    </p>
+  </div>
+    <div *ngFor="let card of coinUpdates" class="col-4 col-sm-4 col-xl-4 card-body border">
+        <div class="card">
+          <div id="div1" class="d-flex justify-content-center">
+            <div class="spinner-border" role="status" *ngIf="!card.ImageUrl">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+            <img class="card-img-top" src={{card.ImageUrl}} alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ card.name }}</h5>
+              <h6>{{ card.same }}</h6>
+              <p class="card-text">
+                {{ card.symbol }} <br>
+                {{ card.USDprice | currency: "USD"}}<br>
+                {{ card.ILSprice | currency: "ILS" }}<br>
+                {{ card.EURprice | currency: "EUR" }}<br>
+            </p>
+              <a (click)="getUpdate(card.id)" class="btn btn-primary">Get Update</a>
+            </div>
+          </div>
+    </div>
+</div>
+
