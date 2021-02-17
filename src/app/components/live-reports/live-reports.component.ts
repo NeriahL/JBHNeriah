@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { coinModel } from 'src/app/models/coin.model';
 import { moreInfoModel } from 'src/app/models/more-info.model';
 import { updateModel } from 'src/app/models/Update.model';

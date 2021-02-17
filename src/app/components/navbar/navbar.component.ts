@@ -12,6 +12,8 @@ export class NavbarComponent implements OnInit {
 
   coinData: coinModel[]= [];
   siftedCoinData: coinModel[]= [];
+  buttonVal: boolean = false;
+  buttonText: string = "Search"
 
   constructor(private coinService: CoinService) { }
 

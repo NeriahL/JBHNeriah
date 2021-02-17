@@ -18,6 +18,7 @@ export class CoinService {
 
   ListSubject = new Subject<string[]>();
   testData = new Subject<string>();
+  button = new Subject<boolean>();
   boolVal: boolean = true;
 
   constructor(private httpClient: HttpClient) { }
@@ -80,4 +81,5 @@ export class CoinService {
       {this.COINS_CACHE[id] = r;
       setTimeout(() => {delete this.COINS_CACHE[id]}, 120*1000);}))
   }
+ 
 }

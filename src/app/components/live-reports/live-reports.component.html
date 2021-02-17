@@ -1,17 +1,21 @@
 <app-loading *ngIf="isLoading == true"></app-loading>
-<div class="row mx-5" *ngIf="isLoading == false">
+<div *ngIf="isLoading == false">
   <div *ngIf="coinUpdates.length==0" class="justify-content-center">
-    <p>
-      No coins selected for Live updates.
-    </p>
+    <div class="card mx-auto" style="width: 50%;">
+      <img class="card-img-top" src="https://www.nicepng.com/png/detail/85-850617_file-shrug-wiki.png" alt="Card image cap">
+      <div class="card-body">
+        <h2 class="card-title">Sorry</h2>
+        <h6 class="card-subtitle mb-2 text-muted"> No coins selected for Live updates.</h6>
+        <p class="card-text">
+         Please return to the Home-page to selsect coins for your Live Updates list!
+      </p>
+      </div>
+    </div>
   </div>
+</div>
     <div *ngFor="let card of coinUpdates" class="col-4 col-sm-4 col-xl-4 card-body border">
         <div class="card">
-          <div id="div1" class="d-flex justify-content-center">
-            <div class="spinner-border" role="status" *ngIf="!card.ImageUrl">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
+          
             <img class="card-img-top" src={{card.ImageUrl}} alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{ card.name }}</h5>
@@ -26,5 +30,5 @@
             </div>
           </div>
     </div>
-</div>
+
 

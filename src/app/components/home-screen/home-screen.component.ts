@@ -17,6 +17,7 @@ export class HomeScreenComponent implements OnInit {
   coinList: string[]=[]; 
   val: string;
   card: string;
+  buttonChange:boolean = false;
 
   show: boolean;
   public isLoading = false;
@@ -27,16 +28,7 @@ export class HomeScreenComponent implements OnInit {
     this.isLoading = true;
     setTimeout(() => {this.coinService.getFullList().subscribe(info => {
       this.coinData = info;
-      for (let i = 0; i < this.coinData.length; i++) {
-        if(this.coinService.coinList.indexOf(this.coinData[i].id) != -1){
-          this.siftedCoinData.push(this.coinData[i])
-        }
-      }
-      for(let i = 0; i < 20; i++) {
-        if(this.coinService.coinList.indexOf(this.coinData[i].id) == -1){
-          this.siftedCoinData.push(this.coinData[i])
-        }
-      }
+      this.loadCards()
       console.log(this.coinData)})
 
    this.displayCurrency()
@@ -58,19 +50,24 @@ export class HomeScreenComponent implements OnInit {
             }
           }
         } else {
-        for (let i = 0; i < this.coinData.length; i++) {
-          if(this.coinService.coinList.indexOf(this.coinData[i].id) != -1){
-            this.siftedCoinData.push(this.coinData[i])
-          }
-        }
-        for(let i = 0; i < 20; i++) {
-          if(this.coinService.coinList.indexOf(this.coinData[i].id) == -1){
-            this.siftedCoinData.push(this.coinData[i])
-          }
-        }
+          this.loadCards()
       }
       console.log(this.siftedCoinData)
       console.log(this.coinData)})
     })
   }
+
+  loadCards() {
+    for (let i = 0; i < this.coinData.length; i++) {
+      if(this.coinService.coinList.indexOf(this.coinData[i].id) != -1){
+        this.siftedCoinData.push(this.coinData[i])
+      }
+    }
+    for(let i = 0; i < 20; i++) {
+      if(this.coinService.coinList.indexOf(this.coinData[i].id) == -1){
+        this.siftedCoinData.push(this.coinData[i])
+      }
+    }
+  }
 }
+

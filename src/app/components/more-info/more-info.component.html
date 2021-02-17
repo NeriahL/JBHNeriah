@@ -1,4 +1,5 @@
-<div class="card-body">
+<div class="card">
+<div class="card-body steel">
     <div class="custom-control custom-switch float-right">
         <input type="checkbox" class="custom-control-input" [checked]="isChecked" *ngIf="popUp==true" id={{card.id}} (click)= "checkOff()" data-toggle="modal" data-target="#exampleModalCenter">
         <label class="custom-control-label" for={{card.id}}></label>
@@ -12,9 +13,9 @@
         </button>
       </p>
       <div id="collapseExample" [ngbCollapse]="isCollapsed">
-        <app-loading *ngIf= "isLoading==true"></app-loading>
+        <app-loading *ngIf= "!coinInfo"></app-loading>
         <div  *ngIf="coinInfo">
-          <div class="card-body" *ngIf="isLoading==false">
+          <div class="card card-body">
             <img src={{coinInfo.ImageUrl}}>
             <p>
                 {{ coinInfo.USDprice | currency: "USD"}}<br>
@@ -24,6 +25,7 @@
           </div>
         </div>
       </div>
+</div>
 </div>
 
 
@@ -45,3 +47,4 @@
     </div>
   </div>
 </div>
+

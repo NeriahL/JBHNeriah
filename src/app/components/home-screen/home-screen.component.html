@@ -1,6 +1,6 @@
-<app-loading *ngIf="isLoading == true"></app-loading>
-<div class="row mx-5" *ngIf="isLoading == false">
-    <div *ngFor="let card of siftedCoinData" class="col-12 col-sm-12 col-md-4 card-body border">
+<app-loading *ngIf="siftedCoinData.length==0"></app-loading>
+<div class="card-group parallax">
+    <div *ngFor="let card of siftedCoinData" class="col-12 col-sm-12 col-md-4 py-3">
       <app-more-info [card] = "card"></app-more-info>
     </div>
 </div>
